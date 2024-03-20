@@ -14,13 +14,20 @@ router.post("/product", async (req, res) => {
 
 // Get all products
 router.get("/products", async (req, res) => {
-  const cat_prefix = req.query?.cat_prefix;
+  const cat_prefix = req.query.cat_prefix;
+  const productIds = req.query.id;
 
   try {
     if (cat_prefix) {
-      const products = await Product.find({ cat_prefix }).exec();
+      const products = await Product.find({ cat_prefix });
       return res.json(products);
     }
+
+    if (productIds) {
+      const products = await Product.find({ _id: { $in: productIds } });
+      return res.json(products);
+    }
+
     const products = await Product.find();
     res.json(products);
   } catch (error) {
