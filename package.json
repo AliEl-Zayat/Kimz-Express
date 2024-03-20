@@ -1,0 +1,17 @@
+{
+  "name": "Kimz-Express",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "swagger-autogen": "node ./src/docs/swagger.js",
+    "build": ""
+  },
+  "dependencies": {
+    "express": "^4.18.3",
+    "mongoose": "^8.2.2",
+    "swagger-autogen": "^2.23.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  }
+}

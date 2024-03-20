@@ -1,0 +1,109 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2.0.0",
+    "title": "CloudAgent APIs",
+    "description": "API for Managing queue calls",
+    "contact": {
+      "name": "API Support",
+      "email": "alielzayat07@gmail.com"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Category",
+      "description": "Endpoints related to categories"
+    },
+    {
+      "name": "Product",
+      "description": "Endpoints related to products"
+    }
+  ],
+  "schemes": ["http"],
+  "securityDefinitions": {},
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/category": {
+      "post": {
+        "tags": ["Category"],
+        "description": "Create a new category",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Category"],
+        "description": "Get all categories",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/product": {
+      "post": {
+        "tags": ["Product"],
+        "description": "Create a new product",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "tags": ["Product"],
+        "description": "Get all products",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "tags": ["Product"],
+        "description": "Get a product by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
