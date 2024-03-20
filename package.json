@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "swagger-autogen": "node ./src/docs/swagger.js",
-    "build": ""
+    "start": "node app.js",
+    "swagger-autogen": "node ./src/docs/swagger.js"
   },
   "dependencies": {
     "express": "^4.18.3",
