@@ -22,6 +22,20 @@ router.get("/products", async (req, res) => {
   }
 });
 
+// Get products by category
+router.get("/productsByCat", async (req, res) => {
+  const cat_prefix = req.query.cat_prefix;
+  if (!cat_prefix) {
+    return res.status(400).json({ error: "cat_prefix is required" });
+  }
+  try {
+    const products = await Product.find({ cat_prefix }).exec();
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 // Get a single product by ID
 router.get("/products/:id", async (req, res) => {
   try {
