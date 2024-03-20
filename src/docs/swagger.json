@@ -2,34 +2,24 @@
   "swagger": "2.0",
   "info": {
     "version": "2.0.0",
-    "title": "CloudAgent APIs",
+    "title": "CloudAgent Apis",
     "description": "API for Managing queue calls",
     "contact": {
       "name": "API Support",
       "email": "alielzayat07@gmail.com"
     }
   },
-  "host": "localhost:3000",
+  "host": "https://kimz-express.vercel.app",
   "basePath": "/",
-  "tags": [
-    {
-      "name": "Category",
-      "description": "Endpoints related to categories"
-    },
-    {
-      "name": "Product",
-      "description": "Endpoints related to products"
-    }
-  ],
-  "schemes": ["http"],
+  "tags": [],
+  "schemes": ["https"],
   "securityDefinitions": {},
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
     "/category": {
       "post": {
-        "tags": ["Category"],
-        "description": "Create a new category",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -40,8 +30,7 @@
         }
       },
       "get": {
-        "tags": ["Category"],
-        "description": "Get all categories",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -54,8 +43,7 @@
     },
     "/product": {
       "post": {
-        "tags": ["Product"],
-        "description": "Create a new product",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -68,8 +56,17 @@
     },
     "/products": {
       "get": {
-        "tags": ["Product"],
-        "description": "Get all products",
+        "description": "Get products with optional category prefix filter",
+        "parameters": [
+          {
+            "name": "cat_prefix",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": ["men", "women", "kidz", "baby", "sport"],
+            "description": "Category prefix for filtering products"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -82,8 +79,7 @@
     },
     "/products/{id}": {
       "get": {
-        "tags": ["Product"],
-        "description": "Get a product by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
